@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <!-- katex -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" integrity="sha384-jmxIlussZWB7qCuB+PgKG1uLjjxbVVIayPJwi6cG6Zb4YKq0JIw+OMnkkEC7kYCq" crossorigin="anonymous"></script>
+  <!-- highlightjs -->
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+  <script type="text/javascript" src="dist/markdowner.js"></script>
+  <script type="text/javascript">
+    function refresh() {
+      try {
+        markdowner(document.getElementById('content').value).then(result => {
+          // console.log(result);
+          const div = document.getElementById('output');
+          div.innerHTML = result;
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    window.onload = () => {
+      refresh();
+      let timeoutId = null;
+      document.getElementById('content').addEventListener('keydown', () => {
+        if (timeoutId === null) {
+          timeoutId = setTimeout(() => {
+            refresh();
+            timeoutId = null;
+          }, 500);
+        }
+      });
+    };
+  </script>
+  <style type="text/css">
+    #container {
+      display: flex;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+    #editor {
+      flex-grow: 1;
+    }
+    #output {
+      flex-grow: 1;
+    }
+    #content {
+      width: 100%;
+      height: 100%;
+      resize: none;
+      border: 0px;
+      border-right: 10px solid lightgrey;
+      box-sizing: border-box;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="editor">
+      <textarea id="content">
+# This is a test
+
+Let `$x$` be a variable.
+
+```
+$$E = mc^2$$
+```
+
+```javascript
+function foo() {
+  return () => console.log('stay cool, daddy-O');
+}
+```</textarea>
+    </div>
+    <div id="output">Test</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "markdowner",
+  "version": "1.0.0",
+  "description": "An easy to use markdown-to-html converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmichaud/markdowner.git"
+  },
+  "keywords": [
+    "markdown"
+  ],
+  "author": "jdmichaud",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdmichaud/markdowner/issues"
+  },
+  "homepage": "https://github.com/jdmichaud/markdowner#readme",
+  "devDependencies": {
+    "rollup": "^0.58.2",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "dependencies": {
+    "highlight.js": "^9.12.0",
+    "katex": "^0.9.0",
+    "marked": "^0.3.19"
+  }
+}
