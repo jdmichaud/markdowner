@@ -1,4 +1,4 @@
-const convert = require('./dist/markdowner');
+const convert = require('../dist/markdowner');
 
 console.log(`
 <!DOCTYPE html>
