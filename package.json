@@ -1,6 +1,6 @@
 {
   "name": "markdowner",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "An easy to use markdown-to-html converter",
   "main": "index.js",
   "scripts": {
