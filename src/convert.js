@@ -1,5 +1,5 @@
 import marked from 'marked';
-import highlight from 'highlight.js';
+import hljs from 'highlight.js';
 
 import configure from './fragment';
 
@@ -13,14 +13,14 @@ marked.setOptions({
     }
     else if (lang) {
       try {
-        return highlight.highlight(lang, code).value;
+        return hljs.highlight(lang, code).value;
       } catch (e) {
-        return highlight.highlightAuto(code).value
+        return hljs.highlightAuto(code).value
       }
     }
-    else return highlight.highlightAuto(code).value;
+    else return hljs.highlightAuto(code).value;
   },
-  // highlight: code => highlight.highlightAuto(code).value,
+  // highlight: code => hljs.highlightAuto(code).value,
   pedantic: false,
   gfm: true,
   tables: true,
