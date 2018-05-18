@@ -1,5 +1,5 @@
 {
-  "name": "markdowner",
+  "name": "@jdmichaud/markdowner",
   "version": "0.2.0",
   "description": "An easy to use markdown-to-html converter",
   "main": "index.js",
