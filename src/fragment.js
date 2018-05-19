@@ -6,8 +6,6 @@ async function extract_n_replace(regex, processor, content) {
     if (match !== null) {
       const fragment = match[1];
       const result = await processor(fragment);
-      // console.log('fragment:', fragment);
-      // console.log('result:', result);
       content =
         content.substr(0, match.index) + '\n' +
         result +
