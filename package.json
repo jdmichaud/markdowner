@@ -2,7 +2,7 @@
   "name": "@jdmichaud/markdowner",
   "version": "0.2.0",
   "description": "An easy to use markdown-to-html converter",
-  "main": "index.js",
+  "main": "dist/markdowner.js",
   "scripts": {
     "test": "npm test",
     "build": "rollup src/convert.js --o dist/markdowner.js -f umd --name 'markdowner'"
