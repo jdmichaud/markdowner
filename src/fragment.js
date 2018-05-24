@@ -1,6 +1,7 @@
 async function extract_n_replace(regex, processor, content) {
   let match;
   // Look for macros
+  regex.lastIndex = 0;
   while (match !== null) {
     match = regex.exec(content);
     if (match !== null) {
