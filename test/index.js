@@ -27,6 +27,31 @@ Let \`$x$\` be a variable.
 $$E = mc^2$$
 \`\`\`
 
+\`\`\`diagram
+$$
+\\begin{pspicture}(-0.5,-0.5)(5,5)
+
+% origin
+\\rput(-0.3,0){ $0$ }
+% x axis
+\\rput(4.1,0){ $x$ }
+\\psline{->}(0,0)(4,0)
+% y axis
+\\rput(0.2,4.3){ $y$ }
+\\psline{->}(0,0)(0,4)
+
+% a vector
+\\psline[linewidth=1.5 pt]{->}(0,0)(3,0.5)
+\\rput(2.1,0.9){$a$}
+
+% b vector
+\\psline[linewidth=1.5 pt]{->}(0,0)(1,2)
+\\rput(0.2,1.3){$b$}
+
+\\end{pspicture}      
+$$
+\`\`\`
+
 \`\`\`javascript
 function foo() {
   return () => console.log('stay cool, daddy-O');

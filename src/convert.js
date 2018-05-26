@@ -4,11 +4,12 @@ import hljs from 'highlight.js';
 import configure from './fragment';
 
 import math from './math';
+import diagram from './diagram';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
   highlight: (code, lang) => {
-    if (lang == 'math') {
+    if (lang === 'math' || lang === 'diagram') {
       return code;
     }
     else if (lang) {
@@ -34,12 +35,14 @@ marked.setOptions({
 const preprocessors = configure([]);
 
 const postprocessors = configure([{
-  // regex: new RegExp('```math(((?!```)[\\s\\S])*)', 'mg'),
   regex: new RegExp('<pre><code class="lang-math">\\$\\$([^\\$]*)\\$\\$', 'mg'),
   processor: math.bind(null, true),
 }, {
   regex: new RegExp('<code>\\$([^\\$]*)\\$</code>', 'mg'),
   processor: math.bind(null, false),
+}, {
+  regex: new RegExp('<pre><code class="lang-diagram">\\$\\$(.*)\\$\\$', 'mgs'),
+  processor: diagram,
 }]);
 
 export default async function toHtml(content) {
