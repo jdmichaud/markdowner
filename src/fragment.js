@@ -2,6 +2,8 @@ async function extract_n_replace(regex, processor, content) {
   let match;
   // Look for macros
   regex.lastIndex = 0;
+  // If the processor implement a reset function, call it now.
+  if (processor.reset !== undefined) processor.reset();
   while (match !== null) {
     match = regex.exec(content);
     if (match !== null) {

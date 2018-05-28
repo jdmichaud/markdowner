@@ -5,6 +5,7 @@ import configure from './fragment';
 
 import math from './math';
 import diagram from './diagram';
+import numbering from './numbering';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -32,7 +33,10 @@ marked.setOptions({
   xhtml: false,
 });
 
-const preprocessors = configure([]);
+const preprocessors = configure([{
+  regex: new RegExp('^(#+.*)', 'gm'),
+  processor: numbering,
+}]);
 
 const postprocessors = configure([{
   regex: new RegExp('<pre><code class="lang-math">\\$\\$([^\\$]*)\\$\\$', 'mg'),
