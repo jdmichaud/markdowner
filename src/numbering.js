@@ -14,6 +14,7 @@ export default function numbering(fragment) {
   const dashes = m[1];
   const title = m[2].trim();
   counters[dashes.length - 1] = counters[dashes.length - 1] + 1;
+  counters = counters.slice(0, dashes.length).concat(counters.slice(dashes.length).map(_ => 0));
   return Promise.resolve(`${dashes} ${generateNumbering(counters, dashes.length)} ${title}`);
 }
 
