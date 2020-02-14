@@ -44,9 +44,9 @@ const postprocessors = configure([{
 }, {
   regex: new RegExp('<code>\\$([^\\$]*)\\$</code>', 'mg'),
   processor: math.bind(null, false),
-}, {
-  regex: new RegExp('<pre><code class="lang-diagram">\\$\\$(.*)\\$\\$', 'mgs'),
-  processor: diagram,
+// }, {
+//   regex: new RegExp('<pre><code class="lang-diagram">\\$\\$(.*)\\$\\$', 'gms'),
+//   processor: diagram,
 }]);
 
 export default async function toHtml(content) {

@@ -5,7 +5,7 @@ export default function diagram(fragment) {
     .replace(/&amp;/g, '&')
     .replace(/&gt;/g, '>')
     .replace(/&lt;/g, '<')
-  ;    
+  ;
   return new Promise((resolve, reject) => {
     LaTeX2HTML5.default(unescapedFragment, (div) => {
       let output = div.innerHTML.replace(/visibility: hidden/g, 'visibility: visible');
